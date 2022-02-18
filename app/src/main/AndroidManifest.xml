@@ -13,6 +13,9 @@
         android:theme="@style/Theme.Gamerecords"
         android:usesCleartextTraffic="true">
         <activity
+            android:name=".views.DetailsActivity"
+            android:exported="false" />
+        <activity
             android:name=".views.MainActivity"
             android:exported="true">
             <intent-filter>

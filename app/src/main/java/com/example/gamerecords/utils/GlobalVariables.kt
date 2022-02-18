@@ -1,6 +1,7 @@
 package com.example.gamerecords.utils
 
 import android.content.Context
+import com.example.gamerecords.dtos.response.RecordResponseDto
 
 class GlobalVariables {
     companion object {
@@ -9,4 +10,5 @@ class GlobalVariables {
 
     lateinit var applicationContext: Context
     lateinit var httpWorker: HttpWorker
+    lateinit var currentRecord: RecordResponseDto
 }

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.DetailsActivity">
+
+    <Button
+        android:id="@+id/buttonActivityDetailsBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Назад" />
+
+    <TextView
+        android:id="@+id/textViewActivityDetailsNickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewActivityDetailsScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewActivityDetailsGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewActivityDetailsDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <TextView
+        android:id="@+id/textViewActivityDetailsCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="TextView" />
+
+    <Button
+        android:id="@+id/buttonActivityDetailsDelete"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Удалить" />
+</LinearLayout>

@@ -7,15 +7,14 @@
     android:orientation="vertical"
     tools:context=".views.MainActivity">
 
-    <TextView
-        android:id="@+id/textViewData"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="TextView" />
-
     <Button
-        android:id="@+id/buttonLoadData"
+        android:id="@+id/buttonActivityMainLoadData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Load data" />
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/recyclerViewActivityMain"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
 </LinearLayout>

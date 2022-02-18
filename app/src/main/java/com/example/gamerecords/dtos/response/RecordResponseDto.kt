@@ -1,4 +1,4 @@
-package com.example.gamerecords.dtos
+package com.example.gamerecords.dtos.response
 
 class RecordResponseDto(
     var id: Int,
