@@ -1,7 +1,7 @@
 package com.example.gamerecords.utils
 
 import android.content.Context
-import com.example.gamerecords.dtos.response.RecordResponseDto
+import com.example.gamerecords.dtos.entity.RecordResponseDto
 
 class GlobalVariables {
     companion object {

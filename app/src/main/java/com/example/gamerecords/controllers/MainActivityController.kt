@@ -1,11 +1,14 @@
 package com.example.gamerecords.controllers
 
+import android.content.Intent
 import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamerecords.R
 import com.example.gamerecords.apiworkers.RecordsApiWorker
 import com.example.gamerecords.dtos.response.RecordsListResponseDto
+import com.example.gamerecords.utils.GlobalVariables
+import com.example.gamerecords.views.InsertNewActivity
 import com.example.gamerecords.views.MainActivity
 import com.google.gson.Gson
 
@@ -16,6 +19,7 @@ class MainActivityController(
 
     private lateinit var recyclerViewActivityMain: RecyclerView
     private lateinit var buttonActivityMainLoadRecordsList: Button
+    private lateinit var buttonActivityMainInsertNew: Button
 
     fun initialize() {
         recordsApiWorker = RecordsApiWorker()
@@ -26,21 +30,30 @@ class MainActivityController(
             mainActivity.findViewById(R.id.buttonActivityMainLoadData)
 
         buttonActivityMainLoadRecordsList.setOnClickListener {
-           loadRecordsList()
+            loadRecordsList()
+        }
+
+        buttonActivityMainInsertNew = mainActivity.findViewById(R.id.buttonActivityMainInsertNew)
+
+        buttonActivityMainInsertNew.setOnClickListener {
+            var intent =
+                Intent(GlobalVariables.instance.applicationContext, InsertNewActivity::class.java)
+
+            mainActivity.startActivity(intent)
         }
     }
 
-    fun loadRecordsList(){
-        recordsApiWorker.getAll(::updateTextViewData)
+    fun loadRecordsList() {
+        recordsApiWorker.getAll(::updateRecyclerViewActivityMain)
     }
 
-    private fun updateTextViewData(data: String) {
-        var recordsResponseDto = Gson().fromJson(data, RecordsListResponseDto::class.java)
+    private fun updateRecyclerViewActivityMain(data: String) {
+        var recordsListResponseDto = Gson().fromJson(data, RecordsListResponseDto::class.java)
 
         recyclerViewActivityMain.layoutManager =
             LinearLayoutManager(mainActivity.applicationContext)
 
-        recyclerViewActivityMain.adapter = RvAdapterMainActivity(recordsResponseDto.recordsList)
+        recyclerViewActivityMain.adapter = RvAdapterMainActivity(recordsListResponseDto.recordsList)
     }
 
 }

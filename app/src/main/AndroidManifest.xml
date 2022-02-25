@@ -15,6 +15,11 @@
         <activity
             android:name=".views.DetailsActivity"
             android:exported="false" />
+
+        <activity
+            android:name=".views.InsertNewActivity"
+            android:exported="false" />
+
         <activity
             android:name=".views.MainActivity"
             android:exported="true">

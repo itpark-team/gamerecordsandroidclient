@@ -8,10 +8,16 @@
     tools:context=".views.MainActivity">
 
     <Button
+        android:id="@+id/buttonActivityMainInsertNew"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Добавить новую запись" />
+
+    <Button
         android:id="@+id/buttonActivityMainLoadData"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Load data" />
+        android:text="Перезагрузить список" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/recyclerViewActivityMain"

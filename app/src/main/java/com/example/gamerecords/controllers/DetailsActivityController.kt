@@ -5,7 +5,7 @@ import android.widget.TextView
 import android.widget.Toast
 import com.example.gamerecords.R
 import com.example.gamerecords.apiworkers.RecordsApiWorker
-import com.example.gamerecords.dtos.response.RecordResponseDto
+import com.example.gamerecords.dtos.entity.RecordResponseDto
 import com.example.gamerecords.utils.GlobalVariables
 import com.example.gamerecords.views.DetailsActivity
 import java.text.SimpleDateFormat
@@ -29,7 +29,6 @@ class DetailsActivityController(private var detailsActivity: DetailsActivity) {
         var globalVariables = GlobalVariables.instance
 
         recordsApiWorker = RecordsApiWorker()
-
 
         record = globalVariables.currentRecord
 

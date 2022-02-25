@@ -8,10 +8,9 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamerecords.R
-import com.example.gamerecords.dtos.response.RecordResponseDto
+import com.example.gamerecords.dtos.entity.RecordResponseDto
 import com.example.gamerecords.utils.GlobalVariables
 import com.example.gamerecords.views.DetailsActivity
-import com.example.gamerecords.views.MainActivity
 
 class RvAdapterMainActivity : RecyclerView.Adapter<RvAdapterMainActivity.RecordItemHolder> {
 

@@ -16,13 +16,13 @@ class HttpWorker(private val applicationContext: Context) {
     fun makeStringRequestWithoutBody(
         httpMethod: Int,
         url: String,
-        callbackFunction: (String) -> Unit,
+        successCallbackFunction: (String) -> Unit,
         httpHeaders: MutableMap<String, String> = hashMapOf()
     ) {
         val request = object : StringRequest(
             httpMethod,
             url,
-            callbackFunction,
+            successCallbackFunction,
             ::errorFunction
         ) {
             override fun getHeaders(): MutableMap<String, String> {
@@ -36,14 +36,14 @@ class HttpWorker(private val applicationContext: Context) {
     fun makeStringRequestWithBody(
         httpMethod: Int,
         url: String,
-        callbackFunction: (String) -> Unit,
+        successCallbackFunction: (String) -> Unit,
         httpBodyInJson: String,
         httpHeaders: MutableMap<String, String> = hashMapOf()
     ) {
         val request = object : StringRequest(
             httpMethod,
             url,
-            callbackFunction,
+            successCallbackFunction,
             ::errorFunction
         ) {
             override fun getBodyContentType(): String {
