@@ -1,13 +1,15 @@
 package com.example.gamerecords.apiworkers
 
 import com.android.volley.Request
+import com.example.gamerecords.dtos.request.RecordRequestDto
 import com.example.gamerecords.utils.GlobalVariables
+import com.google.gson.Gson
 
 class RecordsApiWorker {
     fun getById(id: Int, successCallbackFunction: (String) -> Unit) {
-        val httpMethod = Request.Method.GET
-        val url = "http://151.248.113.116:8080/records/getById/$id"
-        val httpWorker = GlobalVariables.instance.httpWorker
+        var httpMethod = Request.Method.GET
+        var url = "http://151.248.113.116:8080/records/getById/$id"
+        var httpWorker = GlobalVariables.instance.httpWorker
         httpWorker.makeStringRequestWithoutBody(
             httpMethod,
             url,
@@ -16,9 +18,9 @@ class RecordsApiWorker {
     }
 
     fun getAll(successCallbackFunction: (String) -> Unit) {
-        val httpMethod = Request.Method.GET
-        val url = "http://151.248.113.116:8080/records/getAll"
-        val httpWorker = GlobalVariables.instance.httpWorker
+        var httpMethod = Request.Method.GET
+        var url = "http://151.248.113.116:8080/records/getAll"
+        var httpWorker = GlobalVariables.instance.httpWorker
         httpWorker.makeStringRequestWithoutBody(
             httpMethod,
             url,
@@ -27,13 +29,26 @@ class RecordsApiWorker {
     }
 
     fun deleteById(id: Int, successCallbackFunction: (String) -> Unit) {
-        val httpMethod = Request.Method.DELETE
-        val url = "http://151.248.113.116:8080/records/deleteById/$id"
-        val httpWorker = GlobalVariables.instance.httpWorker
+        var httpMethod = Request.Method.DELETE
+        var url = "http://151.248.113.116:8080/records/deleteById/$id"
+        var httpWorker = GlobalVariables.instance.httpWorker
         httpWorker.makeStringRequestWithoutBody(
             httpMethod,
             url,
             successCallbackFunction
+        )
+    }
+
+    fun insertOne(recordRequestDto: RecordRequestDto, successCallbackFunction: (String) -> Unit) {
+        var httpMethod = Request.Method.POST
+        var url = "http://151.248.113.116:8080/records/insertOne"
+        var recordRequestDtoInJson = Gson().toJson(recordRequestDto)
+        var httpWorker = GlobalVariables.instance.httpWorker
+        httpWorker.makeStringRequestWithBody(
+            httpMethod,
+            url,
+            successCallbackFunction,
+            recordRequestDtoInJson
         )
     }
 }

@@ -49,8 +49,8 @@ class DetailsActivityController(private var detailsActivity: DetailsActivity) {
         textViewActivityDetailsScore.text = record.score.toString()
         textViewActivityDetailsGame.text = record.game
 
-        val dateFormatter = SimpleDateFormat("dd.MM.yyyy")
-        val date = Date(record.unixDateTime)
+        var dateFormatter = SimpleDateFormat("dd.MM.yyyy HH:mm:ss")
+        var date = Date(record.unixDateTime)
 
         textViewActivityDetailsDateTime.text = dateFormatter.format(date)
         textViewActivityDetailsCountry.text = record.countryName.toString()

@@ -6,8 +6,8 @@ import com.android.volley.VolleyError
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 
-class HttpWorker(private val applicationContext: Context) {
-    private val volleyQueue = Volley.newRequestQueue(applicationContext)
+class HttpWorker(private var applicationContext: Context) {
+    private var volleyQueue = Volley.newRequestQueue(applicationContext)
 
     private fun errorFunction(volleyError: VolleyError) {
         Toast.makeText(applicationContext, volleyError.toString(), Toast.LENGTH_LONG).show()
@@ -19,7 +19,7 @@ class HttpWorker(private val applicationContext: Context) {
         successCallbackFunction: (String) -> Unit,
         httpHeaders: MutableMap<String, String> = hashMapOf()
     ) {
-        val request = object : StringRequest(
+        var request = object : StringRequest(
             httpMethod,
             url,
             successCallbackFunction,
@@ -40,7 +40,7 @@ class HttpWorker(private val applicationContext: Context) {
         httpBodyInJson: String,
         httpHeaders: MutableMap<String, String> = hashMapOf()
     ) {
-        val request = object : StringRequest(
+        var request = object : StringRequest(
             httpMethod,
             url,
             successCallbackFunction,

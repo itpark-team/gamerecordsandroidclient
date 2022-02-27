@@ -47,7 +47,7 @@
         android:layout_height="wrap_content"
         android:ems="10"
         android:hint="дата и время в формате dd.MM.yyyy HH:mm:ss"
-        android:inputType="datetime"
+        android:inputType="textPersonName"
         android:text=""
         tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
 
