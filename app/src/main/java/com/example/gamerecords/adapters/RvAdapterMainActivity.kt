@@ -1,4 +1,4 @@
-package com.example.gamerecords.controllers
+package com.example.gamerecords.adapters
 
 import android.content.Intent
 import android.view.LayoutInflater

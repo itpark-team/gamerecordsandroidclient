@@ -5,6 +5,7 @@ import android.widget.Button
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.gamerecords.R
+import com.example.gamerecords.adapters.RvAdapterMainActivity
 import com.example.gamerecords.apiworkers.RecordsApiWorker
 import com.example.gamerecords.dtos.response.RecordsListResponseDto
 import com.example.gamerecords.utils.GlobalVariables
@@ -15,11 +16,13 @@ import com.google.gson.Gson
 class MainActivityController(
     private var mainActivity: MainActivity
 ) {
-    private lateinit var recordsApiWorker: RecordsApiWorker
-
     private lateinit var recyclerViewActivityMain: RecyclerView
     private lateinit var buttonActivityMainLoadRecordsList: Button
     private lateinit var buttonActivityMainInsertNew: Button
+
+    private lateinit var recordsApiWorker: RecordsApiWorker
+
+    private var globalVariables = GlobalVariables.instance
 
     fun initialize() {
         recordsApiWorker = RecordsApiWorker()
@@ -37,7 +40,7 @@ class MainActivityController(
 
         buttonActivityMainInsertNew.setOnClickListener {
             var intent =
-                Intent(GlobalVariables.instance.applicationContext, InsertNewActivity::class.java)
+                Intent(globalVariables.applicationContext, InsertNewActivity::class.java)
 
             mainActivity.startActivity(intent)
         }

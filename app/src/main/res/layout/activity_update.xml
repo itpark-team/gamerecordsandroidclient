@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".views.UpdateActivity">
+
+    <Button
+        android:id="@+id/buttonActivityUpdateBack"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Назад" />
+
+    <EditText
+        android:id="@+id/editTextActivityUpdateNickname"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="никнейм"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/editTextActivityUpdateScore"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="счёт"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/editTextActivityUpdateGame"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="название игры"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <EditText
+        android:id="@+id/editTextActivityUpdateDateTime"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:ems="10"
+        android:hint="дата и время в формате dd.MM.yyyy HH:mm:ss"
+        android:inputType="textPersonName"
+        android:text=""
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Spinner
+        android:id="@+id/spinnerActivityUpdateCountry"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        tools:ignore="TouchTargetSizeCheck,SpeakableTextPresentCheck" />
+
+    <Button
+        android:id="@+id/buttonActivityUpdateUpdate"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Обновить" />
+
+</LinearLayout>

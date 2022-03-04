@@ -18,11 +18,6 @@ import kotlin.collections.ArrayList
 class InsertNewActivityController(
     private var insertNewActivity: InsertNewActivity
 ) {
-    private lateinit var recordsApiWorker: RecordsApiWorker
-    private lateinit var countriesApiWorker: CountriesApiWorker
-
-    private lateinit var selectedCountry: CountryResponseDto
-
     private lateinit var editTextActivityNewInsertNickname: EditText
     private lateinit var editTextActivityNewInsertScore: EditText
     private lateinit var editTextActivityNewInsertGame: EditText
@@ -30,6 +25,13 @@ class InsertNewActivityController(
 
     private lateinit var buttonActivityNewInsertBack: Button
     private lateinit var buttonActivityNewInsertAdd: Button
+
+    private lateinit var recordsApiWorker: RecordsApiWorker
+    private lateinit var countriesApiWorker: CountriesApiWorker
+
+    private lateinit var selectedCountry: CountryResponseDto
+
+    private var globalVariables = GlobalVariables.instance
 
     fun initialize() {
         recordsApiWorker = RecordsApiWorker()
@@ -70,7 +72,7 @@ class InsertNewActivityController(
         var spinner: Spinner = insertNewActivity.findViewById(R.id.spinnerActivityNewInsertCountry)
 
         val adapter = ArrayAdapter(
-            GlobalVariables.instance.applicationContext,
+            globalVariables.applicationContext,
             android.R.layout.simple_spinner_item,
             countriesNames
         )
@@ -112,7 +114,7 @@ class InsertNewActivityController(
 
     private fun checkInsertOne(data: String) {
         Toast.makeText(
-            GlobalVariables.instance.applicationContext,
+            globalVariables.applicationContext,
             "Запись успешно добавлена",
             Toast.LENGTH_LONG
         ).show()

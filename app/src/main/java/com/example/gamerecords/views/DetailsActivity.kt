@@ -6,11 +6,18 @@ import com.example.gamerecords.R
 import com.example.gamerecords.controllers.DetailsActivityController
 
 class DetailsActivity : AppCompatActivity() {
+    private lateinit var detailsActivityController: DetailsActivityController
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_details)
 
-        var detailsActivityController = DetailsActivityController(this)
+        detailsActivityController = DetailsActivityController(this)
         detailsActivityController.initialize()
     }
+
+    override fun onStart() {
+        super.onStart()
+        detailsActivityController.initialize()
+    }
+
 }

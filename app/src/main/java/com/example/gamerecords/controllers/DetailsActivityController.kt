@@ -1,5 +1,6 @@
 package com.example.gamerecords.controllers
 
+import android.content.Intent
 import android.widget.Button
 import android.widget.TextView
 import android.widget.Toast
@@ -8,13 +9,11 @@ import com.example.gamerecords.apiworkers.RecordsApiWorker
 import com.example.gamerecords.dtos.entity.RecordResponseDto
 import com.example.gamerecords.utils.GlobalVariables
 import com.example.gamerecords.views.DetailsActivity
+import com.example.gamerecords.views.UpdateActivity
 import java.text.SimpleDateFormat
 import java.util.*
 
 class DetailsActivityController(private var detailsActivity: DetailsActivity) {
-    private lateinit var recordsApiWorker: RecordsApiWorker
-
-    private lateinit var record: RecordResponseDto
 
     private lateinit var buttonActivityDetailsBack: Button
     private lateinit var textViewActivityDetailsNickname: TextView
@@ -23,14 +22,16 @@ class DetailsActivityController(private var detailsActivity: DetailsActivity) {
     private lateinit var textViewActivityDetailsDateTime: TextView
     private lateinit var textViewActivityDetailsCountry: TextView
     private lateinit var buttonActivityDetailsDelete: Button
+    private lateinit var buttonActivityDetailsUpdate: Button
 
+    private lateinit var recordsApiWorker: RecordsApiWorker
+
+    private var globalVariables = GlobalVariables.instance
 
     fun initialize() {
-        var globalVariables = GlobalVariables.instance
+        var record = globalVariables.currentRecord
 
         recordsApiWorker = RecordsApiWorker()
-
-        record = globalVariables.currentRecord
 
         textViewActivityDetailsNickname =
             detailsActivity.findViewById(R.id.textViewActivityDetailsNickname)
@@ -44,6 +45,7 @@ class DetailsActivityController(private var detailsActivity: DetailsActivity) {
 
         buttonActivityDetailsBack = detailsActivity.findViewById(R.id.buttonActivityDetailsBack)
         buttonActivityDetailsDelete = detailsActivity.findViewById(R.id.buttonActivityDetailsDelete)
+        buttonActivityDetailsUpdate = detailsActivity.findViewById(R.id.buttonActivityDetailsUpdate)
 
         textViewActivityDetailsNickname.text = record.nickname
         textViewActivityDetailsScore.text = record.score.toString()
@@ -70,5 +72,11 @@ class DetailsActivityController(private var detailsActivity: DetailsActivity) {
                 //detailsActivity.finish()
             }
         }
+
+        buttonActivityDetailsUpdate.setOnClickListener {
+            var intent = Intent(globalVariables.applicationContext, UpdateActivity::class.java)
+            globalVariables.applicationContext.startActivity(intent)
+        }
+
     }
 }
